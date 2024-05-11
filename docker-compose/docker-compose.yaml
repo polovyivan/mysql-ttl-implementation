@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  my_sql_local:
+    container_name: my_sql_local
+    image: mysql:8.4.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: message
+      MYSQL_USER: message_user
+      MYSQL_PASSWORD: message_password
+      MYSQL_NATIVE_PASSWORD: ON
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d
